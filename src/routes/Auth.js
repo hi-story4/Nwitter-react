@@ -43,7 +43,7 @@ const Auth = () => {
       <div>
         <button>Continue with Google</button>
         <div></div>
-        <button>Continue with </button>
+        <button>Continue with Githsub</button>
       </div>
     </>
   );
