@@ -43,7 +43,7 @@ const Auth = () => {
       <div>
         <button>Continue with Google</button>
         <div></div>
-        <button>Continue with Github</button>
+        <button>Continue with </button>
       </div>
     </>
   );
