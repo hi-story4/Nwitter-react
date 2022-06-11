@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+ import React, { useState, useEffect } from "react";
 import AppRouter from "components/Router";
 import { auth } from "firebs";
 
 function App() {
-  console.log(auth.currentUser);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [init, setInit] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  useEffect(()=>{
+    auth.onAuthStateChanged((user) => {
+      if  (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    })
+
+  }, []);
   return (
     <>
-      <AppRouter isLoggedIn={isLoggedIn} />
-      <footer>&copy; Nwitter {new Date().getFullYear()} Nwitter</footer>
+      { init ? < AppRouter isLoggedIn={isLoggedIn} /> : " Initializing ..." }
+    
     </>
   );
 }
