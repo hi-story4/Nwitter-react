@@ -5,15 +5,21 @@ import Auth from "routes/Auth";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   console.log(typeof isLoggedIn);
   console.log(isLoggedIn);
   return (
     <Router>
-      {isLoggedIn && <Navigation />}
+      {isLoggedIn && <Navigation userObj={userObj} />}
       <Routes>
-        <Route path="/" element={isLoggedIn ? <Home /> : <Auth />} />
-        <Route path="/profile" element={<Profile />}>
+        <Route
+          path="/"
+          element={isLoggedIn ? <Home userObj={userObj} /> : <Auth />}
+        />
+        <Route
+          path="/profile"
+          element={<Profile refreshUser={refreshUser} userObj={userObj} />}
+        >
           {" "}
         </Route>
       </Routes>

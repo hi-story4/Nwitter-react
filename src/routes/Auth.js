@@ -8,7 +8,6 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
-import Animation from "components/animation";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -64,8 +63,6 @@ const Auth = () => {
     <>
       <div className=" max-w-3xl w-full my-auto mx-auto flex flex-col  items-center py-10">
         <div className=" mx-auto w-12  mb-10">
-          <Animation />
-
           <img src="images/twitter.svg" alt="React" />
         </div>
         <div className=" font-bold text-3xl mb-8">

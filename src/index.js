@@ -4,8 +4,4 @@ import "input.css";
 import App from "components/App";
 
 const container = document.getElementById("root");
-ReactDOM.createRoot(container).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.createRoot(container).render(<App />);
