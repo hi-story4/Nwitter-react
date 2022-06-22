@@ -73,7 +73,6 @@ const Nweet = ({ nweetObj, isOwner }) => {
                   </div>
                 </form>
               </div>
-              <div></div>
             </div>
           </>
         ) : (

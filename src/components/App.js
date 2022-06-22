@@ -16,7 +16,12 @@ function App() {
           updateProfile(auth.currentUser, { displayName: name });
         }
         setIsLoggedIn(true);
-        setUserObj(user);
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args) =>
+            updateProfile(user, { displayName: user.displayName }),
+        });
       } else {
         setIsLoggedIn(false);
       }
@@ -24,7 +29,13 @@ function App() {
     });
   }, []);
   const refreshUser = () => {
-    setUserObj(auth.currentUser);
+    const user = auth.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) =>
+        updateProfile(user, { displayName: user.displayName }),
+    });
   };
   return (
     <>

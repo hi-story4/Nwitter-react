@@ -12,11 +12,9 @@ function Profile({ refreshUser, userObj }) {
   const onSubmit = async (event) => {
     event.preventDefault();
     if (userObj.displayName !== newDisplayName) {
-      const {
-        target: { value },
-      } = event;
-
-      await updateProfile(auth.currentUser, { displayName: value });
+      console.log(newDisplayName);
+      await updateProfile(auth.currentUser, { displayName: newDisplayName });
+      refreshUser();
     }
   };
   const onChange = (event) => {
@@ -26,6 +24,7 @@ function Profile({ refreshUser, userObj }) {
   const onLogOutClick = () => {
     signOut(auth);
     navigate("/");
+    refreshUser();
   };
 
   const getMyNweets = async () => {
@@ -60,7 +59,7 @@ function Profile({ refreshUser, userObj }) {
               onChange={onChange}
             />
 
-            <input type="submit" />
+            <input type="submit" value="확인" className="focus:bg-slate-100" />
           </form>
         </div>
 
