@@ -7,6 +7,7 @@ import {
   GithubAuthProvider,
 } from "firebase/auth";
 import AuthForm from "components/AuthForm";
+import { faDiagramPredecessor } from "@fortawesome/free-solid-svg-icons";
 
 const Auth = () => {
   const [newAccount, setNewAccount] = useState(true);
@@ -32,7 +33,12 @@ const Auth = () => {
     <>
       <div className=" max-w-3xl w-full my-auto mx-auto flex flex-col  items-center py-10">
         <div className=" mx-auto w-12  mb-10">
-          <img src="images/twitter.svg" alt="React" />
+          <img
+            src={process.env.PUBLIC_URL + "/images/twitter.svg"}
+            alt="React"
+          />
+          {/*  public 폴더 쓰는 법.
+         https://create-react-app.dev/docs/using-the-public-folder/ */}
         </div>
         <div className=" font-bold text-3xl mb-8">
           {newAccount ? "트위터 계정 만들기" : "트위터에 로그인하기"}{" "}
@@ -40,7 +46,11 @@ const Auth = () => {
 
         <div className="w-1/2">
           <div className="flex justify-center my-4 py-2 border-[1.5px] border-gray-200  rounded-3xl cursor-pointer hover:delay-100  hover:bg-slate-100">
-            <img className="w-5 mx-2 " src="images/google.svg" alt="React" />
+            <img
+              className="w-5 mx-2 "
+              src={process.env.PUBLIC_URL + "/images/google.svg"}
+              alt="React"
+            />
             <button onClick={onSocialClick} name="google">
               Google 계정으로 로그인
             </button>
@@ -50,7 +60,7 @@ const Auth = () => {
             <div className="w-4 flex justify-center items-center mx-2">
               <img
                 className="w-full aspect-auto"
-                src="images/github.svg"
+                src={process.env.PUBLIC_URL + "/images/github.svg"}
                 alt="React"
               />
             </div>
